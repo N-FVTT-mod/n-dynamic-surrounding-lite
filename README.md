@@ -1,6 +1,6 @@
 # N Dynamic Surrounding Lite
 
-A lightweight analog clock for Foundry VTT v14. The dial, hands, calendar, and light indicator are made with HTML and CSS. The clock itself uses no images, SVG files, audio, or bundled fonts. The two SVG banners in `assets/` appear only in this README and are not loaded by the module. The clock follows world time and reads the current Scene's actual darkness; it does not change Scene darkness or generate weather.
+A lightweight analog clock for Foundry VTT v14. The clock follows world time and reads the current Scene's actual darkness; it does not change Scene darkness or generate weather.
 
 For packages submitted to Foundry VTT's official listing, its AI Content Policy restricts prepared visual assets. Lite therefore renders its clock visuals in code instead of bundling the full edition's illustrated clock faces. For a richer range of clock styles, see the full edition on Patreon. Hand-illustrated clock faces for Lite are also in development.
 
