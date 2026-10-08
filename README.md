@@ -20,7 +20,7 @@ Follow the Lite edition and its upcoming hand-illustrated clock faces. The intro
 
 <div align="center">
 
-<a href="https://www.patreon.com/cw/Minstrel_N">
+<a href="https://www.patreon.com/Minstrel_N/posts/n-dynamic-lite-171770826">
   <img
     src="./assets/patreon-lite-banner.svg"
     alt="Read about N Dynamic Surrounding Lite on Patreon"
@@ -88,7 +88,7 @@ The full **N Dynamic Surrounding** module adds:
 
 <div align="center">
 
-<a href="https://www.patreon.com/cw/Minstrel_N">
+<a href="https://www.patreon.com/Minstrel_N/posts/n-dynamic-make-171772362">
   <img
     src="./assets/patreon-full-banner.svg"
     alt="Explore the full N Dynamic Surrounding edition on Patreon"
