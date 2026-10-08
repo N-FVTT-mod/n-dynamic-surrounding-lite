@@ -1,0 +1,130 @@
+{
+  "NPDS": {
+    "Season": {
+      "Spring": "Spring",
+      "Summer": "Summer",
+      "Autumn": "Autumn",
+      "Winter": "Winter"
+    },
+    "Light": {
+      "Bright": "Bright",
+      "Dim": "Dim",
+      "Dark": "Dark"
+    },
+    "LightMessage": {
+      "dawnDim": "First light appears.",
+      "sunriseBright": "Daylight becomes bright.",
+      "sunsetDim": "The sun sets and the light begins to fade.",
+      "nightDark": "Night fully settles over the surroundings.",
+      "bright": "The surroundings become bright.",
+      "dim": "The surroundings become dim.",
+      "dark": "The surroundings become dark."
+    },
+    "Vision": {
+      "Dim": {
+        "Short": "Poor vision in dim light",
+        "Text": "This token has no detected low-light or darkvision capability. Apply the active game system's dim-light rules."
+      },
+      "Dark": {
+        "Short": "Cannot see normally in darkness",
+        "Text": "This token has no detected darkvision capability. Apply the active game system's darkness rules."
+      }
+    },
+    "Chat": {
+      "Speaker": "Dynamic Surrounding",
+      "NewYear": "New Year",
+      "NewMonth": "Month Changed",
+      "NewSeason": "Season Changed"
+    },
+    "HUD": {
+      "Clock": "Dynamic Surrounding Clock",
+      "DateAndSeason": "World Date and Season",
+      "Year": "Year",
+      "Month": "Month",
+      "Day": "Day"
+    },
+    "Settings": {
+      "VisionWarnings": {
+        "Name": "Show Vision Rule Warnings",
+        "Hint": "Show token warnings when dim light or darkness exceeds a creature's vision."
+      },
+      "CalendarNotifications": {
+        "Name": "Post Calendar and Light Messages",
+        "Hint": "Post messages for month, season, and light-phase changes."
+      },
+      "EmphasizeTimeJumps": {
+        "Name": "Emphasize Deliberate Large Time Jumps",
+        "Hint": "Large discrete time jumps enlarge the clock; continuous and combat-driven updates do not."
+      },
+      "EmphasisMinimumSeconds": {
+        "Name": "Minimum Time Jump for Emphasis (seconds)",
+        "Hint": "Smaller updates move the hands normally without enlarging the clock."
+      }
+    },
+    "CalendarNotice": {
+      "NamedYear": "The world enters the {title} ({year} AR).",
+      "GenericYear": "The world enters {year}, with a new year of stories yet to unfold.",
+      "GenericMonth": "The world enters {month}, and the calendar opens onto new journeys.",
+      "GenericSeason": "The seasons turn, and the world enters {season}.",
+      "Seasons": {
+        "spring": "Snow melts and green shoots return. The world enters spring.",
+        "summer": "Sunlight grows stronger and life flourishes. The world enters summer.",
+        "autumn": "Grain ripens and leaves turn gold. The world enters autumn.",
+        "winter": "Cold winds cross the land, and life grows quiet. The world enters winter."
+      },
+      "PF2Months": {
+        "1": "The world enters Abadius. Merchants and cities greet the first trade of the new year.",
+        "2": "The world enters Calistril. The Inner Sea endures winter’s cold as spring draws near.",
+        "3": "The world enters Pharast. Pharasma watches over endings and the first life of spring.",
+        "4": "The world enters Gozran. Gozreh’s wind and rain sweep the coasts and stir the land.",
+        "5": "The world enters Desnus. Warm, gentle days invite travelers onto Desna’s roads.",
+        "6": "The world enters Sarenith. Sarenrae’s sunlight fills the long days of summer.",
+        "7": "The world enters Erastus. Crops begin to bear fruit, and farmers and hunters grow busy.",
+        "8": "The world enters Arodus. People remember Aroden’s achievements and mourn his death.",
+        "9": "The world enters Rova. Harvest celebrations begin, even as people prepare for the cold ahead.",
+        "10": "The world enters Lamashan. Shadows lengthen, and monsters are seen more often at dusk.",
+        "11": "The world enters Neth. As daylight fades, families and friends gather after the harvest.",
+        "12": "The world enters Kuthona. The winter solstice brings the shortest days and the deepest dark."
+      },
+      "PF2Years": {
+        "4710": "Year of the Shadow Lodge",
+        "4711": "Year of the Ruby Phoenix",
+        "4712": "Year of the Risen Rune",
+        "4713": "Year of the Demon",
+        "4714": "Year of the Sky Key",
+        "4715": "Year of the Serpent",
+        "4716": "Year of the Stolen Storm",
+        "4717": "Year of Factions’ Favor",
+        "4719": "Year of the Open Road",
+        "4720": "Year of Corruption’s Reach",
+        "4721": "Year of Shattered Sanctuaries",
+        "4722": "Year of Boundless Wonder",
+        "4723": "Year of Unfettered Exploration",
+        "4724": "Year of Immortal Influence",
+        "4725": "Year of Battle’s Spark",
+        "4726": "Year of Clockwork Mystery"
+      }
+    }
+  },
+  "NPDSL": {
+    "Clock": {
+      "Title": "World Clock",
+      "WorldTime": "World time",
+      "Date": "{year} · {month} · {day}"
+    },
+    "Settings": {
+      "FullVersion": {
+        "Name": "Full version",
+        "Button": "View on Patreon",
+        "Hint": "Open the full version of N Dynamic Surrounding on Patreon."
+      }
+    },
+    "Promo": {
+      "Eyebrow": "N DYNAMIC SURROUNDING · FULL VERSION",
+      "Title": "Bring weather and atmosphere to your world",
+      "Cta": "Explore the full version on Patreon →",
+      "Point1": "Intelligent, realistic weather and lighting shaped by the world’s climate zones and biomes.",
+      "Point2": "Distinctive artistic clock faces, plus special environments and weather from the Pathfinder setting."
+    }
+  }
+}
