@@ -31,5 +31,9 @@ export function registerSettings() {
       onChange: () => Hooks.callAll(`${MODULE_ID}.settingsChanged`, key),
     });
   }
+  register(KEYS.dockEffectsPanel, "client", {
+    name: "NPDS.Settings.DockEffectsPanel.Name", hint: "NPDS.Settings.DockEffectsPanel.Hint",
+    type: Boolean, default: true, config: game.system.id === "pf2e", requiresReload: true,
+  });
   register(KEYS.emphasisMinimumSeconds, "client", { name: "NPDS.Settings.EmphasisMinimumSeconds.Name", hint: "NPDS.Settings.EmphasisMinimumSeconds.Hint", type: Number, default: 300, range: { min: 0, max: 3600, step: 30 } });
 }

@@ -1,6 +1,7 @@
-import { MODULE_ID, SETTINGS, CLOCK_ID } from "./constants.mjs";
+import { MODULE_ID, SETTINGS, CLOCK_ID, EFFECTS_DOCK_ID, EFFECTS_TRAY_ID } from "./constants.mjs";
 import { currentDateTime, datePanelData, localize } from "./model.mjs";
 import { lightLevelAt } from "./light-engine.mjs";
+import { systemSupportsEffectsPanel } from "./system-compat.mjs";
 
 const CLOCK_SCALE_DURATION_MS = 900;
 const CLOCK_IDLE_COLLAPSE_MS = 4700;
@@ -10,6 +11,7 @@ const DATE_ROLL_DURATION_MS = CLOCK_HAND_DURATION_MS * 4;
 let clockAngles = null;
 let clockResizeObserver = null;
 let clockMutationObserver = null;
+let effectsPanelObserver = null;
 let clockExpansionPromise = null;
 let collapseTimer = null;
 let collapseFinishTimer = null;
@@ -51,6 +53,7 @@ function dateFieldHTML(key, labelKey) {
 
 function clockHTML() {
   const ticks = Array.from({ length: 12 }, (_, i) => `<i class="npds-lite-tick" style="--tick:${i}" aria-hidden="true"></i>`).join("");
+  const dockEnabled = systemSupportsEffectsPanel() && game.settings.get(MODULE_ID, SETTINGS.dockEffectsPanel);
   return `<aside id="${CLOCK_ID}" class="npds-lite-clock" aria-label="${foundry.utils.escapeHTML(localize("NPDS.HUD.Clock"))}">
     <div class="npds-smart-clock__timepiece">
       <div class="npds-smart-clock__dial" aria-hidden="true">
@@ -65,7 +68,63 @@ function clockHTML() {
         <div class="npds-lite-season"></div>
       </div>
     </div>
+    ${dockEnabled ? `<section id="${EFFECTS_DOCK_ID}" class="npds-lite-effects-dock" aria-label="${foundry.utils.escapeHTML(localize("NPDS.HUD.EffectsPanel"))}">
+      <button type="button" class="npds-lite-effects-dock__toggle" aria-expanded="false" aria-controls="${EFFECTS_TRAY_ID}">
+        <i class="fa-solid fa-list-check" aria-hidden="true"></i><span>${foundry.utils.escapeHTML(localize("NPDS.HUD.OpenEffects"))}</span><i class="fa-solid fa-chevron-down npds-lite-effects-dock__chevron" aria-hidden="true"></i>
+      </button>
+      <div id="${EFFECTS_TRAY_ID}" class="npds-lite-effects-dock__tray" aria-hidden="true"></div>
+    </section>` : ""}
   </aside>`;
+}
+
+function setEffectsDockExpanded(expanded) {
+  const dock = document.getElementById(EFFECTS_DOCK_ID);
+  if (!(dock instanceof HTMLElement)) return;
+  const open = Boolean(expanded);
+  dock.classList.toggle("is-open", open);
+  const button = dock.querySelector(".npds-lite-effects-dock__toggle");
+  const tray = document.getElementById(EFFECTS_TRAY_ID);
+  if (button instanceof HTMLButtonElement) {
+    button.setAttribute("aria-expanded", String(open));
+    const label = button.querySelector(":scope > span");
+    if (label) label.textContent = localize(open ? "NPDS.HUD.CloseEffects" : "NPDS.HUD.OpenEffects");
+  }
+  tray?.setAttribute("aria-hidden", String(!open));
+}
+
+export function dockPF2eEffectsPanel() {
+  if (!systemSupportsEffectsPanel() || !game.settings.get(MODULE_ID, SETTINGS.dockEffectsPanel)) return;
+  const tray = document.getElementById(EFFECTS_TRAY_ID);
+  const panel = document.getElementById("effects-panel");
+  if (!(tray instanceof HTMLElement) || !(panel instanceof HTMLElement)) return;
+  if (panel.parentElement !== tray) tray.appendChild(panel);
+  panel.classList.add("npds-lite-clock__effects-panel");
+}
+
+function installEffectsDock() {
+  if (!systemSupportsEffectsPanel() || !game.settings.get(MODULE_ID, SETTINGS.dockEffectsPanel)) return;
+  const dock = document.getElementById(EFFECTS_DOCK_ID);
+  if (!(dock instanceof HTMLElement)) return;
+  const toggle = dock.querySelector(".npds-lite-effects-dock__toggle");
+  if (toggle instanceof HTMLButtonElement && toggle.dataset.npdsBound !== "true") {
+    toggle.dataset.npdsBound = "true";
+    toggle.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      setEffectsDockExpanded(!dock.classList.contains("is-open"));
+    });
+  }
+  dockPF2eEffectsPanel();
+  effectsPanelObserver?.disconnect();
+  const rightColumn = document.getElementById("ui-right-column-1");
+  if (rightColumn) {
+    effectsPanelObserver = new MutationObserver(dockPF2eEffectsPanel);
+    effectsPanelObserver.observe(rightColumn, { childList: true });
+  }
+  if (!document.getElementById("effects-panel")) {
+    const render = game.pf2e?.effectPanel?.render?.({ force: true });
+    Promise.resolve(render).then(() => queueMicrotask(dockPF2eEffectsPanel));
+  }
 }
 
 function finishDateRoll(field, value) {
@@ -327,6 +386,7 @@ export function installClockWidget() {
   if (!clock) { document.body.insertAdjacentHTML("beforeend", clockHTML()); clock = document.getElementById(CLOCK_ID); }
   if (!clock) return;
   installClockObservers();
+  installEffectsDock();
   refreshClock({ immediate: true, syncHands: true });
   positionClock();
   document.fonts?.ready.then(fitDateValues);

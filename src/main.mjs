@@ -4,10 +4,11 @@ import { currentDateTime, calendarNoticeState, localize } from "./model.mjs";
 import { calendarNoticeText } from "./calendar-messages.mjs";
 import { postLightMessage } from "./light-engine.mjs";
 import { drawVisionWarning, refreshVisionWarnings } from "./vision.mjs";
-import { installClockWidget, handleTimeVisualUpdate, refreshClock, positionClock, markCombatTimeUpdate } from "./hud.mjs";
+import { installClockWidget, handleTimeVisualUpdate, refreshClock, positionClock, markCombatTimeUpdate, dockPF2eEffectsPanel } from "./hud.mjs";
 import { isAuthorityGM } from "./authority.mjs";
 import { installSceneLightObserver, observeSceneLight } from "./scene-light.mjs";
 import { installFullVersionBanner } from "./settings.mjs";
+import { systemSupportsEffectsPanel } from "./system-compat.mjs";
 let ready = false;
 let noticeTimer = null;
 let pendingNotice = null;
@@ -59,6 +60,9 @@ Hooks.once("init", () => {
   registerSettings();
   Hooks.on("renderSettingsConfig", installFullVersionBanner);
   Hooks.on("lightingRefresh", observeSceneLight);
+  Hooks.on("renderEffectsPanel", () => {
+    if (systemSupportsEffectsPanel() && game.settings.get(MODULE_ID, SETTINGS.dockEffectsPanel)) queueMicrotask(dockPF2eEffectsPanel);
+  });
   Hooks.on("collapseSidebar", () => { requestAnimationFrame(positionClock); setTimeout(positionClock, 220); setTimeout(positionClock, 450); });
   Hooks.on(`${MODULE_ID}.settingsChanged`, key => {
     if (!ready) return;

@@ -1,7 +1,9 @@
 export const MODULE_ID = "n-dynamic-surrounding-lite";
 export const MODULE_TITLE = "N Dynamic Surrounding Lite";
-export const SETTINGS = Object.freeze({ visionWarnings: "visionWarnings", calendarNotifications: "calendarNotifications", emphasizeTimeJumps: "emphasizeTimeJumps", emphasisMinimumSeconds: "emphasisMinimumSeconds" });
+export const SETTINGS = Object.freeze({ visionWarnings: "visionWarnings", calendarNotifications: "calendarNotifications", dockEffectsPanel: "dockEffectsPanel", emphasizeTimeJumps: "emphasizeTimeJumps", emphasisMinimumSeconds: "emphasisMinimumSeconds" });
 export const CLOCK_ID = "npds-lite-clock";
+export const EFFECTS_DOCK_ID = "npds-lite-effects-dock";
+export const EFFECTS_TRAY_ID = "npds-lite-effects-tray";
 export const VISION_WARNING_NAME = "npds-lite-vision-warning";
 export const VISION_TOOLTIP_ID = "npds-lite-vision-tooltip";
 export const SEASONS = Object.freeze({ spring: "NPDS.Season.Spring", summer: "NPDS.Season.Summer", autumn: "NPDS.Season.Autumn", winter: "NPDS.Season.Winter" });

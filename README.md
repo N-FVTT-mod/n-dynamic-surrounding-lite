@@ -11,6 +11,7 @@ For packages submitted to Foundry VTT's official listing, its AI Content Policy 
 - Chat messages for calendar transitions and changes in Scene light. PF2E worlds also receive setting-specific month descriptions and named-year messages where available.
 - Token vision warnings in dim light and darkness. PF2E uses its native actor vision capabilities; other systems use available token vision modes and optional actor flags.
 - Optional emphasis when world time is advanced by a meaningful amount.
+- In PF2E, the native Effects Panel can be opened from a compact button below the clock and browsed in a limited-height tray.
 - English and Simplified Chinese interface text.
 
 ## Lite on Patreon
@@ -60,12 +61,13 @@ Open **Game Settings → Configure Settings → Module Settings → N Dynamic Su
 
 - **Token Vision Warnings** (world): show warnings when the current light level exceeds a token's detected vision capability.
 - **Calendar and Light Messages** (world): allow one active GM to post calendar and Scene-light changes to chat. This switch affects both kinds of message.
+- **Dock PF2E Effects Below the Clock** (client, PF2E only): place the native Effects Panel in the clock's expandable tray. Enabled by default; changing it requires a reload.
 - **Emphasize Time Jumps** (client): animate deliberate advances of world time on this client's clock.
 - **Minimum Emphasis Interval** (client): set the minimum time change in seconds that triggers emphasis; the default is 300 seconds.
 
 ## Data and removal
 
-The module stores these four settings under `n-dynamic-surrounding-lite`. On non-PF2E systems, a GM may optionally provide actor flags under `n-dynamic-surrounding-lite.vision` with `darkvision` or `lowLightVision` boolean values. It does not write Scene darkness, Actors, Items, or its own weather state. Disabling the module leaves stored settings and optional flags inert; a manual uninstall can leave those harmless values behind.
+The module stores these five settings under `n-dynamic-surrounding-lite`. On non-PF2E systems, a GM may optionally provide actor flags under `n-dynamic-surrounding-lite.vision` with `darkvision` or `lowLightVision` boolean values. It does not write Scene darkness, Actors, Items, or its own weather state. Disabling the module leaves stored settings and optional flags inert; a manual uninstall can leave those harmless values behind.
 
 ## Known limits and troubleshooting
 

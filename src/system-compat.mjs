@@ -3,6 +3,10 @@ export function isPF2e() {
   return game.system?.id === "pf2e";
 }
 
+export function systemSupportsEffectsPanel() {
+  return isPF2e();
+}
+
 export function actorVisionCapabilities(actor, tokenDocument = null) {
   if (isPF2e()) {
     return {

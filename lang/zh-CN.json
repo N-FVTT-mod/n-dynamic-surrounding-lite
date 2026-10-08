@@ -41,7 +41,10 @@
       "DateAndSeason": "世界日期与季节",
       "Year": "年",
       "Month": "月",
-      "Day": "日"
+      "Day": "日",
+      "EffectsPanel": "状态栏",
+      "OpenEffects": "打开状态栏",
+      "CloseEffects": "收起状态栏"
     },
     "Settings": {
       "VisionWarnings": {
@@ -51,6 +54,10 @@
       "CalendarNotifications": {
         "Name": "发送时间环境消息",
         "Hint": "发送月份、季节和光照阶段发生变化的聊天消息。"
+      },
+      "DockEffectsPanel": {
+        "Name": "把 PF2E 状态栏收纳到时钟下方",
+        "Hint": "将原生状态栏收纳到可展开托盘。修改后需要刷新世界。"
       },
       "EmphasizeTimeJumps": {
         "Name": "强调主动的大幅时间推进",

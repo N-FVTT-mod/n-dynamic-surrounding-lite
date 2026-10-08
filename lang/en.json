@@ -41,7 +41,10 @@
       "DateAndSeason": "World Date and Season",
       "Year": "Year",
       "Month": "Month",
-      "Day": "Day"
+      "Day": "Day",
+      "EffectsPanel": "Effects Panel",
+      "OpenEffects": "Open Effects",
+      "CloseEffects": "Close Effects"
     },
     "Settings": {
       "VisionWarnings": {
@@ -51,6 +54,10 @@
       "CalendarNotifications": {
         "Name": "Post Calendar and Light Messages",
         "Hint": "Post messages for month, season, and light-phase changes."
+      },
+      "DockEffectsPanel": {
+        "Name": "Dock PF2E Effects Below the Clock",
+        "Hint": "Moves the native PF2E Effects Panel into an expandable tray. Requires reload."
       },
       "EmphasizeTimeJumps": {
         "Name": "Emphasize Deliberate Large Time Jumps",
