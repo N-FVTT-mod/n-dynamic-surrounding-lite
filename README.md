@@ -14,9 +14,9 @@ For packages submitted to Foundry VTT's official listing, its AI Content Policy 
 - In PF2E, the native Effects Panel can be opened from a compact button below the clock and browsed in a limited-height tray.
 - English and Simplified Chinese interface text.
 
-## Lite on Patreon
+## More Display on Patreon
 
-Follow the Lite edition and its upcoming hand-illustrated clock faces. The introduction link currently opens the creator's Patreon page; replace it with the dedicated Lite post URL when that post is published.
+For more detailed display, you can find the display video on Patreon:
 
 <div align="center">
 
