@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="620" height="176" viewBox="0 0 620 176" role="img" aria-labelledby="title description">
+  <title id="title">N Dynamic Surrounding Lite on Patreon</title>
+  <desc id="description">Explore the free Lite edition and follow updates to its code-drawn clock.</desc>
+  <defs>
+    <linearGradient id="background" x2="1" y2="1">
+      <stop stop-color="#231c35"/>
+      <stop offset="1" stop-color="#3d2747"/>
+    </linearGradient>
+  </defs>
+  <rect x="1" y="1" width="618" height="174" rx="18" fill="url(#background)" stroke="#ae6981" stroke-width="2"/>
+  <circle cx="91" cy="88" r="54" fill="#211b30" stroke="#f4d7af" stroke-width="3"/>
+  <circle cx="91" cy="88" r="42" fill="none" stroke="#a4929c" stroke-width="1"/>
+  <path d="M91 37v9m0 84v9M40 88h9m84 0h9" stroke="#f4d7af" stroke-width="3" stroke-linecap="round"/>
+  <path d="M91 88V57m0 31 24 17" fill="none" stroke="#faf0da" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="91" cy="88" r="4" fill="#ff7379"/>
+  <text x="171" y="47" fill="#ff8588" font-family="Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="2">N-FVTT-MOD · PATREON</text>
+  <text x="171" y="83" fill="#fff7e8" font-family="Arial, sans-serif" font-size="26" font-weight="700">N Dynamic Surrounding Lite</text>
+  <text x="171" y="110" fill="#e4d7dc" font-family="Arial, sans-serif" font-size="15">Code-drawn clock · world time · scene light</text>
+  <rect x="171" y="126" width="210" height="33" rx="16" fill="#ff626c"/>
+  <text x="191" y="148" fill="#fff" font-family="Arial, sans-serif" font-size="15" font-weight="700">Explore Lite on Patreon  →</text>
+</svg>

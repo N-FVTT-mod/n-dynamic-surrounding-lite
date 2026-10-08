@@ -1,6 +1,6 @@
 # N Dynamic Surrounding Lite
 
-A lightweight analog clock for Foundry VTT v14. The dial, hands, calendar, and light indicator are made with HTML and CSS. The package contains no clock images, SVG files, audio, or bundled fonts. The clock follows world time and reads the current Scene's actual darkness; it does not change Scene darkness or generate weather.
+A lightweight analog clock for Foundry VTT v14. The dial, hands, calendar, and light indicator are made with HTML and CSS. The clock itself uses no images, SVG files, audio, or bundled fonts. The two SVG banners in `assets/` appear only in this README and are not loaded by the module. The clock follows world time and reads the current Scene's actual darkness; it does not change Scene darkness or generate weather.
 
 For packages submitted to Foundry VTT's official listing, its AI Content Policy restricts prepared visual assets. Lite therefore renders its clock visuals in code instead of bundling the full edition's illustrated clock faces. For a richer range of clock styles, see the full edition on Patreon. Hand-illustrated clock faces for Lite are also in development.
 
@@ -15,7 +15,28 @@ For packages submitted to Foundry VTT's official listing, its AI Content Policy 
 
 ## Lite on Patreon
 
-Follow the Lite edition and its upcoming hand-illustrated clock faces through [Minstrel N's Patreon page](https://www.patreon.com/cw/Minstrel_N). A dedicated Lite introduction post is not yet available; this link currently opens the creator page and should be replaced with that post's URL when it is published.
+Follow the Lite edition and its upcoming hand-illustrated clock faces. The introduction link currently opens the creator's Patreon page; replace it with the dedicated Lite post URL when that post is published.
+
+<div align="center">
+
+<a href="https://www.patreon.com/cw/Minstrel_N">
+  <img
+    src="./assets/patreon-lite-banner.svg"
+    alt="Read about N Dynamic Surrounding Lite on Patreon"
+    width="620"
+  >
+</a>
+
+<br><br>
+
+<a href="https://www.patreon.com/cw/Minstrel_N">
+  <img
+    src="https://img.shields.io/badge/Patreon-Explore%20the%20Lite%20Edition-FF424D?style=for-the-badge&amp;logo=patreon&amp;logoColor=white"
+    alt="Explore the Lite edition on Patreon"
+  >
+</a>
+
+</div>
 
 ## Compatibility
 
@@ -58,7 +79,28 @@ See [CHANGELOG.md](CHANGELOG.md) for release notes, [THIRD_PARTY_NOTICES.md](THI
 
 ## Full version
 
-The full **N Dynamic Surrounding** module is available through [Minstrel N on Patreon](https://www.patreon.com/cw/Minstrel_N). It adds:
+The full **N Dynamic Surrounding** module adds:
 
 - **Intelligent, realistic weather and lighting shaped by the world's climate zones and biomes.**
 - **Distinctive artistic clock faces, plus special environments and weather from the Pathfinder setting.**
+
+<div align="center">
+
+<a href="https://www.patreon.com/cw/Minstrel_N">
+  <img
+    src="./assets/patreon-full-banner.svg"
+    alt="Explore the full N Dynamic Surrounding edition on Patreon"
+    width="620"
+  >
+</a>
+
+<br><br>
+
+<a href="https://www.patreon.com/cw/Minstrel_N">
+  <img
+    src="https://img.shields.io/badge/Patreon-Explore%20the%20Full%20Edition-FF424D?style=for-the-badge&amp;logo=patreon&amp;logoColor=white"
+    alt="Explore the full edition on Patreon"
+  >
+</a>
+
+</div>
