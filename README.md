@@ -69,16 +69,6 @@ Open **Game Settings → Configure Settings → Module Settings → N Dynamic Su
 
 The module stores these five settings under `n-dynamic-surrounding-lite`. On non-PF2E systems, a GM may optionally provide actor flags under `n-dynamic-surrounding-lite.vision` with `darkvision` or `lowLightVision` boolean values. It does not write Scene darkness, Actors, Items, or its own weather state. Disabling the module leaves stored settings and optional flags inert; a manual uninstall can leave those harmless values behind.
 
-## Known limits and troubleshooting
-
-- The three light labels use thresholds based on Scene darkness; they are an indication, not a replacement for the active system's lighting rules.
-- Vision detection outside PF2E is heuristic. Check the token's sight mode if a warning seems wrong.
-- Only one active GM posts chat notices. If no GM is connected, the clock still works but automatic chat notices are not sent.
-- Pathfinder Society year titles are mapped to the AR year in which each season began; those seasons normally start in August. Years without a supported title use a general New Year message.
-- If the clock overlaps a sidebar control, note the Foundry build, game system, display size, and whether the sidebar is expanded, then report the issue on the repository once it exists.
-
-See [CHANGELOG.md](CHANGELOG.md) for release notes, [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for rights information, and [docs/REGRESSION_CHECKLIST.md](docs/REGRESSION_CHECKLIST.md) for manual verification.
-
 ## Full version
 
 The full **N Dynamic Surrounding** module adds:
