@@ -2,4 +2,11 @@
 
 ## 1.0.0
 
-- Initial standalone Lite clock with an HTML/CSS analog dial, calendar display, and Scene-light indicator.
+* Initial Realease.
+
+
+
+## 1.0.1
+
+* Fix a problem on effect panel when mouse cursor move to it from left to right.
+

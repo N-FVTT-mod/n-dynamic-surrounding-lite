@@ -1,5 +1,5 @@
 import { MODULE_ID, SETTINGS as KEYS } from "./constants.mjs";
-const PATREON_URL = "https://www.patreon.com/cw/Minstrel_N";
+const PATREON_URL = "https://www.patreon.com/Minstrel_N/posts/n-dynamic-make-171772362";
 export function installFullVersionBanner(app, html) {
   const root = app?.element ?? html;
   const main = root?.querySelector?.('[data-application-part="main"]');

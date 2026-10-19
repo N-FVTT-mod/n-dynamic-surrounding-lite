@@ -56,7 +56,7 @@
         "Hint": "发送月份、季节和光照阶段发生变化的聊天消息。"
       },
       "DockEffectsPanel": {
-        "Name": "把 PF2E 状态栏收纳到时钟下方",
+        "Name": "状态栏",
         "Hint": "将原生状态栏收纳到可展开托盘。修改后需要刷新世界。"
       },
       "EmphasizeTimeJumps": {

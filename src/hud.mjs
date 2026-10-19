@@ -92,8 +92,71 @@ function setEffectsDockExpanded(expanded) {
   tray?.setAttribute("aria-hidden", String(!open));
 }
 
+let effectsTooltipBaseBuffer = null;
+
+/**
+ * PF2E EffectsPanel tooltips are locked and anchored to the LEFT of an effect row.
+ * Foundry v14 dismisses a locked tooltip when the pointer leaves the tooltip's
+ * bounding box plus a 50px buffer. When the pointer crosses a wide row left-to-right,
+ * it moves away from the tooltip and can dismiss it while still hovering the row.
+ *
+ * Keep PF2E's locked tooltip behavior and actions, but expand the proximity buffer
+ * for docked effect rows to include the row's width. Restore Foundry's original buffer
+ * once the locked tooltip is dismissed. This is scoped to tooltips from this dock.
+ */
+function installEffectsTooltipFix() {
+  const tooltip = game.tooltip;
+  if (!tooltip || typeof tooltip.activate !== "function") return;
+  if (tooltip.activate.__npdsEffectsTooltipFix === true) {
+    return;
+  }
+
+  const tooltipClass = tooltip.constructor;
+  effectsTooltipBaseBuffer ??= Number(tooltipClass.LOCKED_TOOLTIP_BUFFER_PX) || 50;
+  const originalActivate = tooltip.activate;
+  const originalDismissOne = tooltip.dismissLockedTooltip;
+  const originalDismissAll = tooltip.dismissLockedTooltips;
+
+  if (typeof originalDismissOne === "function") {
+    tooltip.dismissLockedTooltip = function (element) {
+      const result = originalDismissOne.call(this, element);
+      if (!document.querySelector(".locked-tooltip")) {
+        tooltipClass.LOCKED_TOOLTIP_BUFFER_PX = effectsTooltipBaseBuffer;
+      }
+      return result;
+    };
+  }
+  if (typeof originalDismissAll === "function") {
+    tooltip.dismissLockedTooltips = function (...args) {
+      const result = originalDismissAll.apply(this, args);
+      tooltipClass.LOCKED_TOOLTIP_BUFFER_PX = effectsTooltipBaseBuffer;
+      return result;
+    };
+  }
+
+  const wrappedActivate = function (element, options = {}) {
+    const isDockedEffect = element instanceof HTMLElement
+      && element.matches(".effect-item[data-item-id]")
+      && element.closest(`#${EFFECTS_TRAY_ID} > #effects-panel`);
+    if (isDockedEffect && options?.locked === true) {
+      const width = element.getBoundingClientRect().width;
+      // Enough room for the pointer to cross the entire row while the tooltip is left-anchored.
+      tooltipClass.LOCKED_TOOLTIP_BUFFER_PX = Math.max(
+        effectsTooltipBaseBuffer,
+        Math.ceil(width + effectsTooltipBaseBuffer + 8),
+      );
+    }
+    return originalActivate.call(this, element, options);
+  };
+  Object.defineProperty(wrappedActivate, "__npdsEffectsTooltipFix", { value: true });
+  tooltip.activate = wrappedActivate;
+}
+
+
+
 export function dockPF2eEffectsPanel() {
   if (!systemSupportsEffectsPanel() || !game.settings.get(MODULE_ID, SETTINGS.dockEffectsPanel)) return;
+  installEffectsTooltipFix();
   const tray = document.getElementById(EFFECTS_TRAY_ID);
   const panel = document.getElementById("effects-panel");
   if (!(tray instanceof HTMLElement) || !(panel instanceof HTMLElement)) return;
@@ -103,6 +166,7 @@ export function dockPF2eEffectsPanel() {
 
 function installEffectsDock() {
   if (!systemSupportsEffectsPanel() || !game.settings.get(MODULE_ID, SETTINGS.dockEffectsPanel)) return;
+  installEffectsTooltipFix();
   const dock = document.getElementById(EFFECTS_DOCK_ID);
   if (!(dock instanceof HTMLElement)) return;
   const toggle = dock.querySelector(".npds-lite-effects-dock__toggle");

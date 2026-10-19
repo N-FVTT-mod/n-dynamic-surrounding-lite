@@ -56,7 +56,7 @@
         "Hint": "Post messages for month, season, and light-phase changes."
       },
       "DockEffectsPanel": {
-        "Name": "Dock PF2E Effects Below the Clock",
+        "Name": "Effects Panel",
         "Hint": "Moves the native PF2E Effects Panel into an expandable tray. Requires reload."
       },
       "EmphasizeTimeJumps": {
