@@ -41,7 +41,7 @@ For more detailed display, you can find the display video on Patreon:
 
 ## Compatibility
 
-- Foundry VTT: minimum v14; package manifest targets v14.367.
+- Foundry VTT: minimum v14; package manifest targets v14.369.
 - Game systems: no required system dependency. PF2E-specific calendar text and vision detection are enabled only in PF2E worlds.
 - The module has no required third-party module or socket dependency.
 
